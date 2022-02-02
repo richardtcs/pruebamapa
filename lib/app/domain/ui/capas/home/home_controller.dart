@@ -12,6 +12,9 @@ class HomeController extends ChangeNotifier{
   HomeController(this._panelController);
   late String _currentPaciente = "";
   late String _currentPacienteName = "";
+  Map<PolylineId, Polyline> _polyline = {
+    const PolylineId("0"): const Polyline(polylineId: PolylineId("0"))
+  };
 
   late Map<MarkerId,Marker> _markers = crearMarkers();
   final rnd = Random();
@@ -23,6 +26,10 @@ class HomeController extends ChangeNotifier{
     controller.setMapStyle(mapStyle);
   }
 
+  Map<PolylineId, Polyline> get polyline{
+    return _polyline;
+  }
+
   String get currentPaciente  {
     print("🔥 getting paciente $_currentPaciente");
     return _currentPaciente;
@@ -31,12 +38,17 @@ class HomeController extends ChangeNotifier{
   String get currentPacienteName {
     return _currentPacienteName;
   }
-
+  PanelController get panelController{
+    return _panelController;
+  }
   set currentPaciente(String paciente){
     print("😈setting paciente $paciente");
     _currentPaciente = paciente;
   }
-
+  set setPolyline(Map<PolylineId, Polyline> polyline){
+    _polyline = polyline;
+    notifyListeners();
+  }
   set currentPacienteName(String name){
     _currentPacienteName = name;
   }

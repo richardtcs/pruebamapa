@@ -38,7 +38,11 @@ dependencies:
   provider: ^6.0.1
   permission_handler: ^8.3.0
   sliding_up_panel: ^2.0.0+1
-
+  flexible_polyline:
+    git:
+      url: https://github.com/heremaps/flexible-polyline.git
+      path: dart
+  maps_toolkit: ^2.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -24,6 +24,7 @@ class _SlidingUpControllerState extends State<SlidingUpController> {
   Widget build(BuildContext context) {
     final controller = Provider.of<HomeController>(context);
     return SlidingUpPanel(
+      collapsed: const Text("queloe"),
       panel: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
