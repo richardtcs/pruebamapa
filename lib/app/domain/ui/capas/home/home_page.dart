@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
           GoogleMap(
             polylines: controller.polyline.values.toSet(),
             onTap: (_) => controller.panelController.hide(),
-            markers: {Marker(markerId: MarkerId("0"),position: LatLng(10.492507, -66.861411))},
+            markers: {const Marker(markerId: MarkerId("0"),position: LatLng(10.492507, -66.861411))},
             initialCameraPosition: controller.initialCameraPosition,
             mapType: MapType.normal,
             onMapCreated: controller.onMapCreated,
@@ -43,8 +43,8 @@ class HomePage extends StatelessWidget {
             // Retorna la distancia
             final routetoolkit = (point).map((e) => toolkit.LatLng(e.latitude, e.longitude)).toList();
             controller.setPolyline = {
-              PolylineId("0"): Polyline(
-                polylineId: PolylineId("0"),
+              const PolylineId("0"): Polyline(
+                polylineId: const PolylineId("0"),
                 points: point,
                 color: Colors.blue,
                 width: 4,
@@ -56,6 +56,7 @@ class HomePage extends StatelessWidget {
               true,
              tolerance: 23
             );
+            // ignore: avoid_print
             print(res);
           })
         ],)
